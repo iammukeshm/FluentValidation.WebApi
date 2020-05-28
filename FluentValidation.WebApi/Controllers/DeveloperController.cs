@@ -18,20 +18,8 @@ namespace FluentValidation.WebApi.Controllers
         [HttpPost]
         public async Task<IActionResult> Create(Developer developer)
         {
-            DeveloperValidator validator = new DeveloperValidator();
-            List<string> ValidationMessages = new List<string>();
-            var validationResult = validator.Validate(developer);
-            var response = new ResponseModel();
-            if(!validationResult.IsValid)
-            {
-                response.IsValid = false;
-                foreach(ValidationFailure failure in validationResult.Errors)
-                {
-                    ValidationMessages.Add(failure.ErrorMessage);
-                }
-                
-            }
-            return Ok(response);
+            return Ok();
         }
+        
     }
 }
